@@ -21,8 +21,9 @@ g_mixins.job_special = function(mob)
         mob:setLocalVar("useSpecAtHpMin", 40)
         mob:setLocalVar("useSpecAtHpMax", 60)
         mob:setLocalVar("useMainSpecAtHPP", math.random(40,60))
+        mob:setLocalVar("waitJobSpec", 2)
     end)
-    
+
     mob:addListener("COMBAT_TICK", "JOB_SPECIAL_CTICK", function(mob)
         local defaultAbility = {
             [dsp.job.WAR] = dsp.jsa.MIGHTY_STRIKES,
@@ -39,6 +40,7 @@ g_mixins.job_special = function(mob)
             [dsp.job.NIN] = dsp.jsa.MIJIN_GAKURE,
             [dsp.job.DRG] = dsp.jsa.CALL_WYVERN,
             [dsp.job.SMN] = dsp.jsa.ASTRAL_FLOW,
+            [dsp.job.BLU] = dsp.jsa.AZURE_LORE,
         }
 
         if mob:getLocalVar("usedMainSpec") == 0 and mob:getHPP() < mob:getLocalVar("useMainSpecAtHPP") and mob:getBattleTime() >= mob:getLocalVar("waitJobSpec") then
@@ -78,13 +80,13 @@ g_mixins.job_special = function(mob)
 
         local hpMin =  mob:getLocalVar("useSpecAtHpMin")
         local hpMax =  mob:getLocalVar("useSpecAtHpMax")
-  
+
         mob:setLocalVar("useMainSpecAtHPP", math.random(hpMin,hpMax))
         if mob:getLocalVar("useSubSpecAtHPP") > 0 then
             mob:setLocalVar("useSubSpecAtHPP", math.random(hpMin,hpMax))
         end
     end)
-    
+
 end
 
 return g_mixins.job_special

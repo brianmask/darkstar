@@ -73,6 +73,7 @@ CBattleEntity::CBattleEntity()
     PPet = nullptr;
     PParty = nullptr;
     PMaster = nullptr;
+    PLastAttacker = nullptr;
 
     StatusEffectContainer = std::make_unique<CStatusEffectContainer>(this);
     PRecastContainer = std::make_unique<CRecastContainer>(this);
@@ -106,6 +107,15 @@ bool CBattleEntity::isInDynamis()
 {
     if (loc.zone != nullptr) {
         return loc.zone->GetType() == ZONETYPE_DYNAMIS;
+    }
+    return false;
+}
+
+bool CBattleEntity::isInAssault()
+{
+    if (loc.zone != nullptr) 
+    {
+        return loc.zone->GetType() == ZONETYPE_DUNGEON_INSTANCED && (loc.zone->GetRegionID() >= REGION_WEST_AHT_URHGAN && loc.zone->GetRegionID() <= REGION_ALZADAAL);
     }
     return false;
 }
@@ -511,6 +521,12 @@ int32 CBattleEntity::addMP(int32 mp)
         updatemask |= UPDATE_HP;
     }
     return abs(mp);
+}
+
+int32 CBattleEntity::takeDamage(int32 amount, CBattleEntity* attacker /* = nullptr*/)
+{
+    PLastAttacker = attacker;
+    return addHP(-amount);
 }
 
 /************************************************************************
@@ -1262,6 +1278,14 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
         else
         {
             actionTarget.param = luautils::OnSpellCast(this, PTarget, PSpell);
+
+            // Manually set the attacker here since the spell scripts call CLuaBaseEntity::delHP and do not provide the attacker
+            if (PSpell->dealsDamage())
+                PTarget->PLastAttacker = this;
+
+            // Remove Saboteur
+            if (PSpell->getSkillType() == SKILLTYPE::SKILL_ENFEEBLING_MAGIC)
+                StatusEffectContainer->DelStatusEffect(EFFECT_SABOTEUR);
 
             // remove effects from damage
             if (PSpell->canTargetEnemy() && actionTarget.param > 0 && PSpell->dealsDamage())

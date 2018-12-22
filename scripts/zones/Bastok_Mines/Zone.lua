@@ -3,11 +3,8 @@
 -- Zone: Bastok_Mines (234)
 --
 -----------------------------------
-package.loaded["scripts/zones/Bastok_Mines/TextIDs"] = nil
------------------------------------
+local ID = require("scripts/zones/Bastok_Mines/IDs")
 require("scripts/globals/events/harvest_festivals")
-require("scripts/zones/Bastok_Mines/TextIDs")
-require("scripts/zones/Bastok_Mines/MobIDs")
 require("scripts/globals/conquest")
 require("scripts/globals/missions")
 require("scripts/globals/settings")
@@ -15,7 +12,7 @@ require("scripts/globals/zone")
 -----------------------------------
 
 function onInitialize(zone)
-    SetExplorerMoogles(BASTOK_MINES_EXPLORER_MOOGLE)
+    SetExplorerMoogles(ID.npc.EXPLORER_MOOGLE)
 
     applyHalloweenNpcCostumes(zone:getID())
 end
@@ -31,7 +28,7 @@ function onZoneIn(player,prevZone)
         player:setPos(-45, -0, 26, 213)
         player:setHomePoint()
     end
-    
+
     -- MOG HOUSE EXIT
     if player:getXPos() == 0 and player:getYPos() == 0 and player:getZPos() == 0 then
         position = math.random(1, 5) - 75
@@ -41,7 +38,7 @@ function onZoneIn(player,prevZone)
         end
         player:setVar("PlayerMainJob", 0)
     end
-    
+
     -- ENTER THE TALEKEEPER
     if prevZone == 172 and player:getCurrentMission(BASTOK) == ENTER_THE_TALEKEEPER and player:getVar("MissionStatus") == 5 then
         cs = 176
@@ -62,10 +59,10 @@ end
 
 function onEventFinish(player,csid,option)
     if csid == 1 then
-        player:messageSpecial(ITEM_OBTAINED, 536) -- adventurer coupon
+        player:messageSpecial(ID.text.ITEM_OBTAINED, 536) -- adventurer coupon
     elseif csid == 30004 and option == 0 then
         player:setHomePoint()
-        player:messageSpecial(HOMEPOINT_SET)
+        player:messageSpecial(ID.text.HOMEPOINT_SET)
     elseif csid == 176 then
         finishMissionTimeline(player, 1, csid, option)
     end

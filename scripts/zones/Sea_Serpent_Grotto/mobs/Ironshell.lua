@@ -1,8 +1,8 @@
 -----------------------------------
--- Area: Seas Serpent Grotto
+-- Area: Sea Serpent Grotto
 --  MOB: Ironshell
 -----------------------------------
-require("scripts/globals/groundsofvalor");
+require("scripts/globals/regimes")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -10,5 +10,5 @@ function onMobSpawn(mob)
 end;
 
 function onMobDeath(mob, player, isKiller)
-    checkGoVregime(player,mob,805,1);
+    dsp.regime.checkRegime(player, mob, 805, 1, dsp.regime.type.GROUNDS)
 end;
