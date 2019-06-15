@@ -79,7 +79,6 @@ void message_server_send(uint64 ipp, MSGSERVTYPE type, zmq::message_t* extra, zm
 
 void message_server_parse(MSGSERVTYPE type, zmq::message_t* extra, zmq::message_t* packet, zmq::message_t* from)
 {
-    ShowDebug("Parsing a new message...");
     int ret = SQL_ERROR;
     in_addr from_ip;
     uint16 from_port = 0;
@@ -228,6 +227,7 @@ void message_server_listen()
                 }
                 continue;
             }
+            ShowDebug("Received a new message...\n");
 
             int more;
             size_t size = sizeof(more);
