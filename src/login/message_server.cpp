@@ -79,13 +79,16 @@ void message_server_send(uint64 ipp, MSGSERVTYPE type, zmq::message_t* extra, zm
 
 void message_server_parse(MSGSERVTYPE type, zmq::message_t* extra, zmq::message_t* packet, zmq::message_t* from)
 {
+    ShowDebug("Parsing a new message...");
     int ret = SQL_ERROR;
     in_addr from_ip;
     uint16 from_port = 0;
     bool ipstring = false;
 
+
     if (from)
     {
+        
         from_ip.s_addr = ref<uint32>((uint8*)from->data(), 0);
         from_port = ref<uint16>((uint8*)from->data(), 4);
     }
