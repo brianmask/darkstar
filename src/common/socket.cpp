@@ -376,7 +376,6 @@ bool _vsocket_final(void){
 uint32 host2ip(const char* hostname)
 {
 	struct hostent* h = gethostbyname(hostname);
-	ShowWarning("converting hostname %s\n", hostname);
 	return (h != NULL) ? ntohl(*(uint32*)h->h_addr) : 0;
 }
 
