@@ -55,9 +55,6 @@ void message_server_send(uint64 ipp, MSGSERVTYPE type, zmq::message_t* extra, zm
 {
     try
     {
-        in_addr target;
-        target.s_addr = (unsigned long)ipp;
-        ShowDebug("Message:  -> rerouting to %s:\n", inet_ntoa(target));
         zmq::message_t to(sizeof(uint64));
         memcpy(to.data(), &ipp, sizeof(uint64));
         zSocket->send(to, ZMQ_SNDMORE);
