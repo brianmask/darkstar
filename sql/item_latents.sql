@@ -31,6 +31,8 @@ INSERT INTO `item_latents` VALUES(10293, 26, 50, 50, 31);   -- Rng. Acc.+50
 INSERT INTO `item_latents` VALUES(10293, 30, 50, 50, 31);   -- Mag. Acc.+50
 -- INSERT INTO `item_latents` VALUES(10293, ??, -1, 50, 31); -- Initiate and below: Likelihood of synthesis material loss -1%
 
+INSERT INTO `item_latents` VALUES(10670, 68, 10, 13, 58);  -- WAR AF2 +2 Body Reduces evasion penalty by 10 if Aggressor Active
+
 INSERT INTO `item_latents` VALUES(10679, 8, 10, 10, 0);
 INSERT INTO `item_latents` VALUES(10679, 9, 10, 10, 0);
 INSERT INTO `item_latents` VALUES(10679, 10, 10, 10, 0);
@@ -38,6 +40,7 @@ INSERT INTO `item_latents` VALUES(10679, 11, 10, 10, 0);
 INSERT INTO `item_latents` VALUES(10719, 12, 10, 11, 0);
 INSERT INTO `item_latents` VALUES(10719, 13, 10, 11, 0);
 INSERT INTO `item_latents` VALUES(10719, 14, 10, 11, 0);
+INSERT INTO `item_latents` VALUES(10730, 63, 10, 13, 56);  -- WAR AF2 +2 Feet Reduces defense penalty by 10% if Berserk Active
 
 -- -------------------------------------------------------
 -- Abyss Sollerets +2
@@ -1255,7 +1258,7 @@ INSERT INTO `item_latents` VALUES(14448, 10, 6, 1, 71);     -- VIT+6 when HP >71
 -- Unicorn Harness +1
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(14449, 10, 7, 1, 71);     -- VIT+7 when HP >71%
-
+INSERT INTO `item_latents` VALUES(14500, 68, 10, 13, 58);  -- WAR AF2 +1 Body Reduces evasion penalty by 10 if Aggressor Active
 INSERT INTO `item_latents` VALUES(14509, 8, 8, 10, 0);
 INSERT INTO `item_latents` VALUES(14509, 9, 8, 10, 0);
 INSERT INTO `item_latents` VALUES(14509, 10, 8, 10, 0);
@@ -1416,6 +1419,8 @@ INSERT INTO `item_latents` VALUES(15069, 385, 200, 48, 0);  -- Augments "Shield 
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(15084, 110, 10, 26, 1);   -- Nighttime: Parry +10
 
+INSERT INTO `item_latents` VALUES(15087, 68, 10, 13, 58);  -- WAR AF2 Body Reduces evasion penalty by 10 if Aggressor Active
+
 INSERT INTO `item_latents` VALUES(15096, 8, 8, 10, 0);
 INSERT INTO `item_latents` VALUES(15096, 9, 8, 10, 0);
 INSERT INTO `item_latents` VALUES(15096, 10, 8, 10, 0);
@@ -1442,6 +1447,8 @@ INSERT INTO `item_latents` VALUES(15126, 14, 8, 11, 0);
 -- Koga Hakama
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(15129, 68, 10, 26, 1);    -- Nighttime: EVA +10
+
+INSERT INTO `item_latents` VALUES(15132, 63, 10, 13, 56);  -- WAR AF2 Feet Reduces defense penalty by 10% if Berserk Active
 
 -- -------------------------------------------------------
 -- Abyss Sollerets
@@ -1702,6 +1709,8 @@ INSERT INTO `item_latents` VALUES(15589, 14, 8, 11, 0);
 -- Koga Hakama +1
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(15592, 68, 12, 26, 2);    -- Dusk - Dawn: EVA +12
+
+INSERT INTO `item_latents` VALUES(15665, 63, 10, 13, 56);  -- WAR AF2 +1 Feet Reduces defense penalty by 10% if Berserk Active
 
 -- -------------------------------------------------------
 -- Abyss Sollerets +1
@@ -3159,18 +3168,130 @@ INSERT INTO `item_latents` VALUES(21817, 369, -4, 55, 0);   -- Drains 4 MP/tic f
 -- INSERT INTO `item_latents` VALUES(21876, 30, 10, ??, 0); -- Wyrm Lance: (D): Magic Accuracy+10
 -- INSERT INTO `item_latents` VALUES(21877, 25, 10, ??, 0); -- Pteroslaver Lance: (D): Accuracy+10
 -- INSERT INTO `item_latents` VALUES(21877, 30, 10, ??, 0); -- Pteroslaver Lance: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(21915, 23, 5, ??, ??); -- Koga shinobi-gatana: Attack+5 for each Utsusemi shadow image
+-- INSERT INTO `item_latents` VALUES(21915, 25, 10, ??, 0); -- Koga shinobi-gatana: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(21915, 30, 10, ??, 0); -- Koga shinobi-gatana: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(21916, 23, 10, ??, ??); -- Mochizuki shinobi-gatana: Attack+10 for each Utsusemi shadow image
+-- INSERT INTO `item_latents` VALUES(21916, 25, 10, ??, 0); -- Mochizuki shinobi-gatana: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(21916, 30, 10, ??, 0); -- Mochizuki shinobi-gatana: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(21917, 23, 15, ??, ??); -- Fudo Masamune: Attack+15 for each Utsusemi shadow image
+-- INSERT INTO `item_latents` VALUES(21922, 368, 1, ??, ??); -- Gokotai: Regain based on Dual Wield, 1 TP/tic for every 1 Dual Wield
+-- INSERT INTO `item_latents` VALUES(21968, 25, 10, ??, 0); -- Saotome-no-Tachi: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(21968, 30, 10, ??, 0); -- Saotome-no-Tachi: (D): Magic Accuracy+10
+INSERT INTO `item_latents` VALUES(21968, 345, 50, 13, 408); -- Saotome-no-Tachi: Sekkanoki: TP Bonus +50% based on remaining TP
+-- INSERT INTO `item_latents` VALUES(21969, 25, 10, ??, 0); -- Sakonji-no-Tachi: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(21969, 30, 10, ??, 0); -- Sakonji-no-Tachi: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(21969, ??, 50, ??, 0); -- Sakonji-no-Tachi: Sekkanoki: TP Bonus +60% based on remaining TP
+-- INSERT INTO `item_latents` VALUES(21970, ??, 70, 13, 408); -- Fusenaikyo: Sekkanoki: TP Bonus +70% based on remaining TP
+INSERT INTO `item_latents` VALUES(21970, 355, 144, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Enpi)
+INSERT INTO `item_latents` VALUES(21970, 355, 145, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Hobaku)
+INSERT INTO `item_latents` VALUES(21970, 355, 146, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Goten)
+INSERT INTO `item_latents` VALUES(21970, 355, 147, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Kagero)
+INSERT INTO `item_latents` VALUES(21970, 355, 148, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Jinpu)
+INSERT INTO `item_latents` VALUES(21970, 355, 149, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Koki)
+INSERT INTO `item_latents` VALUES(21970, 355, 150, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Yukikaze)
+INSERT INTO `item_latents` VALUES(21970, 355, 151, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Gekko)
+INSERT INTO `item_latents` VALUES(21970, 355, 152, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Kasha)
+INSERT INTO `item_latents` VALUES(21970, 355, 153, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Kaiten)
+INSERT INTO `item_latents` VALUES(21970, 355, 154, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Rana)
+INSERT INTO `item_latents` VALUES(21970, 355, 155, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Ageha)
+INSERT INTO `item_latents` VALUES(21970, 355, 156, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Fudo)
+INSERT INTO `item_latents` VALUES(21970, 355, 157, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Shoha)
+INSERT INTO `item_latents` VALUES(21970, 355, 158, 13, 408); -- Fusenaikyo: Sekkanoki: Able to use all Great Katana weapon skills (Suikawari)
+-- INSERT INTO `item_latents` VALUES(22031, ??, ??, ??, 0); -- Maxentius: Main hand: Increases magic burst damage based on skillchain length
+-- INSERT INTO `item_latents` VALUES(22033, 25, 10, ??, 0); -- Cleric's Wand: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22033, 30, 10, ??, 0); -- Cleric's Wand: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22033, ??, ??, ??, 0); -- Cleric's Wand: Afflatus Misery: Esuna removes one extra status ailment
+-- INSERT INTO `item_latents` VALUES(22034, 25, 10, ??, 0); -- Piety Wand: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22034, 30, 10, ??, 0); -- Piety Wand: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22034, ??, ??, ??, 0); -- Piety Wand: Afflatus Misery: Esuna removes two extra status ailments
+-- INSERT INTO `item_latents` VALUES(22035, ??, ??, ??, 0); -- Asclepius: Afflatus Misery: Esuna removes three extra status ailments
+-- INSERT INTO `item_latents` VALUES(22036, 25, 10, ??, 0); -- Bagua Wand: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22036, 30, 10, ??, 0); -- Bagua Wand: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22037, 25, 10, ??, 0); -- Sifang Wand: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22037, 30, 10, ??, 0); -- Sifang Wand: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22057, 369, 1, ??, 0); -- Contemplator: Unity Ranking: "Refresh"+1
+-- INSERT INTO `item_latents` VALUES(22058, 369, 1, ??, 0); -- Contemplator +1: Unity Ranking: "Refresh"+1~2
+-- INSERT INTO `item_latents` VALUES(22091, 25, 10, ??, 0); -- Sorcerer's Staff: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22091, 30, 10, ??, 0); -- Sorcerer's Staff: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22092, 25, 10, ??, 0); -- Archmage's Staff: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22092, 30, 10, ??, 0); -- Archmage's Staff: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22094, 25, 10, ??, 0); -- Summoner's Staff: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22094, 30, 10, ??, 0); -- Summoner's Staff: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22094, ??, 30, ??, 0); -- Summoner's Staff: (D): Avatar: Accuracy+30
+-- INSERT INTO `item_latents` VALUES(22094, ??, 30, ??, 0); -- Summoner's Staff: (D): Avatar: Ranged Accuracy+30
+-- INSERT INTO `item_latents` VALUES(22094, ??, 30, ??, 0); -- Summoner's Staff: (D): Avatar: Magic Accuracy+30
+-- INSERT INTO `item_latents` VALUES(22095, 25, 10, ??, 0); -- Glyphic Staff: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22095, 30, 10, ??, 0); -- Glyphic Staff: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22095, ??, 40, ??, 0); -- Glyphic Staff: (D): Avatar: Accuracy+40
+-- INSERT INTO `item_latents` VALUES(22095, ??, 40, ??, 0); -- Glyphic Staff: (D): Avatar: Ranged Accuracy+40
+-- INSERT INTO `item_latents` VALUES(22095, ??, 40, ??, 0); -- Glyphic Staff: (D): Avatar: Magic Accuracy+40
+-- INSERT INTO `item_latents` VALUES(22097, 25, 10, ??, 0); -- Argute Staff: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22097, 30, 10, ??, 0); -- Argute Staff: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22098, 25, 10, ??, 0); -- Pedagogy Staff: (D): Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22098, 30, 10, ??, 0); -- Pedagogy Staff: (D): Magic Accuracy+10
+INSERT INTO `item_latents` VALUES(22118, 24, 35, 13, 198);  -- Venery Bow: Minuet: Ranged Attack+35
+INSERT INTO `item_latents` VALUES(22118, 174, 5, 13, 198);  -- Venery Bow: Minuet: "Skillchain Bonus"+5
+INSERT INTO `item_latents` VALUES(22118, 944, 5, 13, 198);  -- Venery Bow: Minuet: "Conserve TP"+5
+-- INSERT INTO `item_latents` VALUES(22120, 24, ??, ??, 0); -- Imati: Unity Ranking: Ranged Attack+20~30
+-- INSERT INTO `item_latents` VALUES(22121, 24, ??, ??, 0); -- Imati +1: Unity Ranking: Ranged Attack+20~30
+-- INSERT INTO `item_latents` VALUES(22143, ??, 500, ??, ??); -- Fomalhaut: "TP Bonus"+500 (only applied to Marksmanship weapon skills)
+-- INSERT INTO `item_latents` VALUES(22147, 26, 10, ??, 0); -- Scout's Crossbow: (D): Ranged Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22147, 30, 10, ??, 0); -- Scout's Crossbow: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22148, 26, 10, ??, 0); -- Arke Crossbow: (D): Ranged Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22148, 30, 10, ??, 0); -- Arke Crossbow: (D): Magic Accuracy+10
+-- INSERT INTO `item_latents` VALUES(22254, 8, ??, ??, 0);  -- Seething Bomblet: Unity ranking: STR+1～5
+-- INSERT INTO `item_latents` VALUES(22255, 8, ??, ??, 0);  -- Seething Bomblet +1: Unity ranking: STR+1～5
+-- INSERT INTO `item_latents` VALUES(22266, 288, ??, ??, 0); -- Antitail: Unity Ranking: "Double Attack"+1~3%
+-- INSERT INTO `item_latents` VALUES(22267, 288, ??, ??, 0); -- Antitail +1: Unity Ranking: "Double Attack"+1~3%
 
 -- -------------------------------------------------------
 -- Hachiya Kyahan +2
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(23320, 169, 25, 26, 2);   -- Dusk to dawn: Movement speed +25%
 
+INSERT INTO `item_latents` VALUES(23350, 399, 17, 52, 1);   -- Pedagogy Loafers+2: Weather: Enhances Celerity and Alacrity Effect +17% (FIRE)
+INSERT INTO `item_latents` VALUES(23350, 399, 17, 52, 2);   -- Pedagogy Loafers+2: Weather: Enhances Celerity and Alacrity Effect +17% (EARTH)
+INSERT INTO `item_latents` VALUES(23350, 399, 17, 52, 3);   -- Pedagogy Loafers+2: Weather: Enhances Celerity and Alacrity Effect +17% (WATER)
+INSERT INTO `item_latents` VALUES(23350, 399, 17, 52, 4);   -- Pedagogy Loafers+2: Weather: Enhances Celerity and Alacrity Effect +17% (WIND)
+INSERT INTO `item_latents` VALUES(23350, 399, 17, 52, 5);   -- Pedagogy Loafers+2: Weather: Enhances Celerity and Alacrity Effect +17% (ICE)
+INSERT INTO `item_latents` VALUES(23350, 399, 17, 52, 6);   -- Pedagogy Loafers+2: Weather: Enhances Celerity and Alacrity Effect +17% (THUNDER)
+INSERT INTO `item_latents` VALUES(23350, 399, 17, 52, 7);   -- Pedagogy Loafers+2: Weather: Enhances Celerity and Alacrity Effect +17% (LIGHT)
+INSERT INTO `item_latents` VALUES(23350, 399, 17, 52, 8);   -- Pedagogy Loafers+2: Weather: Enhances Celerity and Alacrity Effect +17% (DARK)
+
+INSERT INTO `item_latents` VALUES(23532, 518, 15, 13, 57); -- WAR AF2 119 +3 Hands Defender Shield Rate +15
 -- -------------------------------------------------------
 -- Hachiya Kyahan +3
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(23655, 169, 25, 26, 2);   -- Dusk to dawn: Movement speed +25%
 
+INSERT INTO `item_latents` VALUES(23685, 399, 18, 52, 1);   -- Pedagogy Loafers+3: Weather: Enhances Celerity and Alacrity Effect +18% (FIRE)
+INSERT INTO `item_latents` VALUES(23685, 399, 18, 52, 2);   -- Pedagogy Loafers+3: Weather: Enhances Celerity and Alacrity Effect +18% (EARTH)
+INSERT INTO `item_latents` VALUES(23685, 399, 18, 52, 3);   -- Pedagogy Loafers+3: Weather: Enhances Celerity and Alacrity Effect +18% (WATER)
+INSERT INTO `item_latents` VALUES(23685, 399, 18, 52, 4);   -- Pedagogy Loafers+3: Weather: Enhances Celerity and Alacrity Effect +18% (WIND)
+INSERT INTO `item_latents` VALUES(23685, 399, 18, 52, 5);   -- Pedagogy Loafers+3: Weather: Enhances Celerity and Alacrity Effect +18% (ICE)
+INSERT INTO `item_latents` VALUES(23685, 399, 18, 52, 6);   -- Pedagogy Loafers+3: Weather: Enhances Celerity and Alacrity Effect +18% (THUNDER)
+INSERT INTO `item_latents` VALUES(23685, 399, 18, 52, 7);   -- Pedagogy Loafers+3: Weather: Enhances Celerity and Alacrity Effect +18% (LIGHT)
+INSERT INTO `item_latents` VALUES(23685, 399, 18, 52, 8);   -- Pedagogy Loafers+3: Weather: Enhances Celerity and Alacrity Effect +18% (DARK)
 INSERT INTO `item_latents` VALUES(27342, 63, 10, 13, 64);   -- Fallen's Sollerets, "Last Resort"+1
 INSERT INTO `item_latents` VALUES(27343, 63, 10, 13, 64);   -- Fallen's Sollerets +1, "Last Resort"+1
+INSERT INTO `item_latents` VALUES(27366, 399, 15, 52, 1);   -- Pedagogy Loafers: Weather: Enhances Celerity and Alacrity Effect +15% (FIRE)
+INSERT INTO `item_latents` VALUES(27366, 399, 15, 52, 2);   -- Pedagogy Loafers: Weather: Enhances Celerity and Alacrity Effect +15% (EARTH)
+INSERT INTO `item_latents` VALUES(27366, 399, 15, 52, 3);   -- Pedagogy Loafers: Weather: Enhances Celerity and Alacrity Effect +15% (WATER)
+INSERT INTO `item_latents` VALUES(27366, 399, 15, 52, 4);   -- Pedagogy Loafers: Weather: Enhances Celerity and Alacrity Effect +15% (WIND)
+INSERT INTO `item_latents` VALUES(27366, 399, 15, 52, 5);   -- Pedagogy Loafers: Weather: Enhances Celerity and Alacrity Effect +15% (ICE)
+INSERT INTO `item_latents` VALUES(27366, 399, 15, 52, 6);   -- Pedagogy Loafers: Weather: Enhances Celerity and Alacrity Effect +15% (THUNDER)
+INSERT INTO `item_latents` VALUES(27366, 399, 15, 52, 7);   -- Pedagogy Loafers: Weather: Enhances Celerity and Alacrity Effect +15% (LIGHT)
+INSERT INTO `item_latents` VALUES(27366, 399, 15, 52, 8);   -- Pedagogy Loafers: Weather: Enhances Celerity and Alacrity Effect +15% (DARK)
+INSERT INTO `item_latents` VALUES(27367, 399, 16, 52, 1);   -- Pedagogy Loafers+1: Weather: Enhances Celerity and Alacrity Effect +16% (FIRE)
+INSERT INTO `item_latents` VALUES(27367, 399, 16, 52, 2);   -- Pedagogy Loafers+1: Weather: Enhances Celerity and Alacrity Effect +16% (EARTH)
+INSERT INTO `item_latents` VALUES(27367, 399, 16, 52, 3);   -- Pedagogy Loafers+1: Weather: Enhances Celerity and Alacrity Effect +16% (WATER)
+INSERT INTO `item_latents` VALUES(27367, 399, 16, 52, 4);   -- Pedagogy Loafers+1: Weather: Enhances Celerity and Alacrity Effect +16% (WIND)
+INSERT INTO `item_latents` VALUES(27367, 399, 16, 52, 5);   -- Pedagogy Loafers+1: Weather: Enhances Celerity and Alacrity Effect +16% (ICE)
+INSERT INTO `item_latents` VALUES(27367, 399, 16, 52, 6);   -- Pedagogy Loafers+1: Weather: Enhances Celerity and Alacrity Effect +16% (THUNDER)
+INSERT INTO `item_latents` VALUES(27367, 399, 16, 52, 7);   -- Pedagogy Loafers+1: Weather: Enhances Celerity and Alacrity Effect +16% (LIGHT)
+INSERT INTO `item_latents` VALUES(27367, 399, 16, 52, 8);   -- Pedagogy Loafers+1: Weather: Enhances Celerity and Alacrity Effect +16% (DARK)
 INSERT INTO `item_latents` VALUES(28235, 169, 25, 26, 2);   -- Hachiya Kyahan: Dusk to dawn: Movement speed +25%
 INSERT INTO `item_latents` VALUES(28256, 169, 25, 26, 2);   -- Hachiya Kyahan +1: Dusk to dawn: Movement speed +25%
+
+INSERT INTO `item_latents` VALUES(23917, 518, 10, 13, 57); -- WAR AF2 119 +2 Hands Defender Shield Rate +10
